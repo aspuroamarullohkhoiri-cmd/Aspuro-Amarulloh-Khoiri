@@ -232,6 +232,46 @@ dialog[open]{animation:pop .28s cubic-bezier(.2,.8,.2,1)}
   .srch{flex:1 1 100%}.srch input{width:100%}
 }
 
+/* Ringkasan visual ERP */
+.viz{margin-top:30px;padding:clamp(16px,3vw,28px);border-radius:24px}
+.viz-h{display:grid;gap:4px;max-width:70ch}
+.viz-k{font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.viz-h h3{font:700 clamp(1.15rem,2.2vw,1.45rem)/1.25 var(--head)}
+.viz-h p{font-size:.95rem;color:var(--muted)}
+.viz-map{margin-top:22px;display:grid;grid-template-columns:minmax(0,1fr) 176px minmax(0,1fr);grid-template-rows:1fr 1fr;gap:14px 0}
+.viz-card,.viz-n{background:linear-gradient(180deg,color-mix(in srgb,var(--c1) 12%,transparent),transparent 62%),var(--glass)}
+.viz-card{display:flex;flex-direction:column;gap:12px;padding:14px 16px;min-width:0}
+.viz-card.a{grid-column:1;grid-row:1}.viz-card.b{grid-column:3;grid-row:1}.viz-card.c{grid-column:1;grid-row:2}.viz-card.d{grid-column:3;grid-row:2}
+.viz-ch{display:flex;gap:10px;align-items:center}.viz-ch b{display:block;font-size:.98rem;line-height:1.3}.viz-ch div span{font-size:.8rem;color:var(--muted)}
+.viz-ml{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px 10px}
+.viz-ml li{display:flex;align-items:center;gap:8px;min-width:0;font-size:.86rem;font-weight:600;line-height:1.25;overflow-wrap:anywhere}
+.viz-hub{grid-column:2;grid-row:1/3;position:relative;display:grid;place-items:center;min-height:190px;order:-1}
+.viz-lines{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.viz-lines path{fill:none;stroke:var(--accent);stroke-width:2;stroke-dasharray:5 6;stroke-linecap:round;opacity:.7;vector-effect:non-scaling-stroke;animation:vz 1.4s linear infinite}
+@keyframes vz{to{stroke-dashoffset:-11}}
+.viz-core{position:relative;z-index:1;width:148px;aspect-ratio:1;border-radius:50%;display:grid;place-content:center;gap:1px;text-align:center;padding:10px;background:linear-gradient(145deg,var(--accent),var(--accent2));color:var(--on);box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 18px 36px -14px var(--sh),0 0 0 8px color-mix(in srgb,var(--accent) 16%,transparent)}
+.viz-core small{font-size:.74rem;font-weight:700;letter-spacing:.02em}.viz-core b{font:700 2.5rem/1 var(--head)}.viz-core span{font-size:.76rem;font-weight:600}
+.viz-s{margin-top:22px;font:700 .78rem var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.viz-flow{margin-top:10px;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr);gap:10px;align-items:center}
+.viz-n{display:flex;gap:10px;align-items:center;padding:12px 14px;min-width:0}.viz-n b{display:block;font-size:.92rem}.viz-n .t{font-size:.82rem;color:var(--muted)}
+.viz-ar{width:22px;height:22px;color:var(--accent)}.viz-ar svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.viz-chips{margin-top:10px;list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.viz-chips li{display:inline-flex;align-items:center;gap:8px;padding:4px 12px;border-radius:999px;font-size:.84rem;font-weight:500;background:color-mix(in srgb,var(--c1) 15%,transparent);border:1px solid color-mix(in srgb,var(--c1) 42%,transparent)}
+.viz-chips.ax li{padding:3px 12px 3px 4px;font-weight:600}
+@media (max-width:860px){
+  .viz-map{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:none;gap:12px}
+  .viz-hub{grid-column:1/-1;grid-row:auto;min-height:0}.viz-lines{display:none}
+  .viz-card.a,.viz-card.b,.viz-card.c,.viz-card.d{grid-column:auto;grid-row:auto}
+  .viz-core{width:auto;aspect-ratio:auto;border-radius:999px;grid-auto-flow:column;place-content:center;align-items:center;gap:10px;padding:10px 24px}
+  .viz-core small{display:none}.viz-core b{font-size:1.8rem}
+}
+@media (max-width:640px){
+  .viz-map{grid-template-columns:1fr}
+  .viz-flow{grid-template-columns:1fr}.viz-ar{justify-self:center;transform:rotate(90deg)}
+}
+@media (prefers-reduced-motion:reduce){.viz-lines path{animation:none}}
+@media print{.viz-lines path{animation:none}.viz{break-inside:avoid}}
+
 /* Cetak */
 @media print{
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
@@ -308,7 +348,7 @@ const D={
   exp:[
     {p:"System & Administration",c:"PT Murinda Sentra Baja",t:"Mei 2025 – Sekarang",lg:["msb.png",424,109],b:["Merancang dan mengembangkan aplikasi web ERP internal berbasis Google Apps Script dan Google Sheets untuk operasional workshop buildup baja dan komponen alat berat.","Membangun modul manajemen gambar, gudang, quality control, HSE, maintenance, pengiriman, dan izin keluar-masuk (gate pass).","Memetakan proses bisnis dan mengintegrasikan data antarbagian agar alur kerja lebih rapi dan mudah dipantau.","Menyusun SOP serta mengelola dokumen dan arsip perusahaan."]},
     {p:"Quality Control Administration Staff",c:"PT Murinda Iron Steel Plant Subang",t:"Sep 2024 – Mei 2025",lg:["murinda.png",424,75],b:["Mengelola administrasi dan dokumentasi quality control.","Membuat sistem untuk mengontrol gambar kerja.","Menyusun dan mengarsipkan dokumen mutu agar mudah ditelusuri."]},
-    {p:"Expedition Administration Staff",c:"PT Masuya Graha Trikencana",t:"Jan 2023 – Apr 2023",lg:["masuya.png",307,164],b:["Mengelola administrasi ekspedisi dan dokumen pengiriman."]},
+    {p:"Expedition Administration",c:"PT Masuya Graha Trikencana",t:"Jan 2023 – Apr 2023",lg:["masuya.png",307,164],b:["Mengelola administrasi ekspedisi dan dokumen pengiriman."]},
     {p:"Customer Service Monitoring Staff",c:"PT Linfox Logistics Indonesia (Unilever WDC)",t:"Jan 2021 – Jan 2023",lg:["linfox.png",319,164],b:["Memantau dan menindaklanjuti layanan pelanggan pada operasional pusat distribusi Unilever (WDC)."]},
     {p:"QC Material Site & Document Control (Freelance)",c:"PT Prima Tunggal Javaland",t:"Agu 2020 – Des 2020",lg:["prima-tunggal.png",265,164],b:["Memeriksa material di lokasi proyek dan mengelola dokumen pengendalian mutu."]},
     {p:"Quality Control Administration Staff",c:"PT Murinda Iron Steel Plant Cikarang",t:"Okt 2017 – Mei 2020",lg:["murinda.png",424,75],b:["Mengelola administrasi quality control serta pengarsipan dokumen mutu dan inspeksi."]},
@@ -436,11 +476,31 @@ E.groups.forEach((g,gi)=>g.m.forEach(m=>MODS.push({n:m[0],d:m[1],g:g.n,gi,i:MI[m
 const AUX=E.aux.map((a,i)=>({n:a[0],d:a[1],g:'Aplikasi pendukung',gi:4,i:MI[a[0]]||'box',h:AH[i%4]}));
 const card=(m,k,i)=>`<li data-g="${m.gi}" data-t="${esc((m.n+' '+m.d+' '+m.g).toLowerCase())}"><button class="mod" type="button" data-k="${k}" data-i="${i}">${ico(m.i,m.h)}<span class="mt">${esc(m.n)}</span><span class="md">${esc(m.d)}</span><span class="mg" style="${hv(m.h)}"><i></i>${esc(m.g)}</span></button></li>`;
 const stats=[[MODS.length,'modul ERP'],[E.groups.length,'kategori'],[AUX.length,'aplikasi pendukung']];
+/* Ringkasan visual MSB ERP System (infografis satu gambar untuk HRD dan pencari kerja) */
+const GI=['factory','shield','wh','building'],POS=['a','b','c','d'];
+const vizCard=(g,gi)=>`<div class="viz-card tile ${POS[gi]}" style="${hv(GH[gi])}"><div class="viz-ch">${ico(GI[gi],GH[gi])}<div><b>${esc(g.n)}</b><span>${g.m.length} modul</span></div></div><ul class="viz-ml">${g.m.map(m=>`<li>${ico(MI[m[0]]||'box',GH[gi],'sm')}<span>${esc(m[0])}</span></li>`).join('')}</ul></div>`;
+const FLOW=[['code','blue','Antarmuka web','HTML'],['cpu','violet','Logika dan API','Google Apps Script'],['cloud','green','Basis data','Google Sheets']];
+const DASH=['Hari tanpa kecelakaan','Karyawan','Tamu dan kendaraan aktif','Purchase Order','SPP belum datang','Pengiriman','Stok produksi','Jumlah LKP','Total insiden','Tren PO bulanan','Distribusi karyawan','Jadwal pengiriman'],DH=['green','teal','cyan','blue','orange','violet','pink','indigo'];
+const VIZ=`<figure class="viz tile rv" role="group" aria-labelledby="viz-t">
+  <figcaption class="viz-h"><span class="viz-k">Ringkasan visual</span><h3 id="viz-t">MSB ERP System</h3><p>Produksi, mutu, K3, gudang, hingga pengiriman terhubung dalam satu portal yang saya rancang dan bangun sendiri.</p></figcaption>
+  <div class="viz-map">
+    <div class="viz-hub"><svg class="viz-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0 24 L50 50"/><path d="M100 24 L50 50"/><path d="M0 76 L50 50"/><path d="M100 76 L50 50"/></svg><div class="viz-core"><small>MSB ERP System</small><b>${MODS.length}</b><span>modul, satu portal</span></div></div>
+    ${E.groups.map(vizCard).join('')}
+  </div>
+  <h4 class="viz-s">Teknologi dan alur data</h4>
+  <div class="viz-flow">${FLOW.map((f,i)=>`<div class="viz-n tile" style="${hv(f[1])}">${ico(f[0],f[1])}<div><b>${f[2]}</b><span class="t">${f[3]}</span></div></div>${i<2?`<span class="viz-ar" aria-hidden="true">${svg('next')}</span>`:''}`).join('')}</div>
+  <h4 class="viz-s">Dasbor operasional</h4>
+  <ul class="viz-chips">${DASH.map((d,i)=>`<li style="${hv(DH[i%DH.length])}">${esc(d)}</li>`).join('')}</ul>
+  <h4 class="viz-s">Aplikasi pendukung</h4>
+  <ul class="viz-chips ax">${E.aux.map((a,i)=>`<li style="${hv(AH[i%4])}">${ico(MI[a[0]]||'box',AH[i%4],'sm')}${esc(a[0])}</li>`).join('')}</ul>
+</figure>`;
+
 $('#erp').innerHTML=`<div class="sec-in erp-in">
   <div class="erp-top"><div>${head('erp','Sistem ERP')}<p class="sub" style="margin-top:-6px">MSB ERP System, ${MODS.length} modul</p></div>
   <div><p class="lead2">${esc(E.intro)}</p>
   <ul class="stats">${stats.map((s,i)=>`<li class="tile rv" style="--d:${i*.1}s"><b class="cn" data-n="${s[0]}">${s[0]}</b><span class="t">${s[1]}</span></li>`).join('')}</ul>
   <ul class="feat">${E.feats.map((f,i)=>`<li class="tile rv" style="--d:${i*.1}s">${ico(EI[i][0],EI[i][1])}<span><b>${esc(f[0])}</b><span class="t">${esc(f[1])}</span></span></li>`).join('')}</ul></div></div>
+  ${VIZ}
   <div class="bar"><div class="tabs" role="group" aria-label="Filter kategori modul"><button class="tab" type="button" data-g="all" aria-pressed="true"><i></i>Semua</button>${E.groups.map((g,i)=>`<button class="tab" type="button" data-g="${i}" aria-pressed="false" style="${hv(GH[i])}"><i></i>${esc(g.n)}</button>`).join('')}</div>
   <label class="srch"><span class="vh">Cari modul</span>${svg('search')}<input id="fq" type="search" placeholder="Cari modul" autocomplete="off"></label></div>
   <p class="cnt-t" id="cn" aria-live="polite"></p>
@@ -460,7 +520,7 @@ $('#pendidikan').innerHTML=`<div class="sec-in">${head('pendidikan','Pendidikan 
 </div></div>`;
 
 const cr=(n,h,k,v,a)=>`<div class="tile${n==='user'?' w2':''}">${ico(n,h,'')}<div><span class="k">${k}</span>${a?`<a class="v" href="${a}"${/^http/.test(a)?' target="_blank" rel="noopener"':''}>${esc(v)}</a>`:`<span class="v">${esc(v)}</span>`}</div></div>`;
-$('#kontak').innerHTML=`<div class="sec-in">${head('kontak','Kontak','Terbuka untuk berdiskusi tentang sistem internal, ERP, dan administrasi mutu.').replace('<p>','<p class="ct-t">')}
+$('#kontak').innerHTML=`<div class="sec-in">${head('kontak','Kontak','Terbuka untuk peluang karier di bidang sistem informasi, pengembangan ERP, dan administrasi mutu. Hubungi saya untuk jadwal wawancara.').replace('<p>','<p class="ct-t">')}
   <div><div class="tb">${cr('user','teal','Nama',FULL)}${cr('brief','orange','Posisi',D.title[0])}${cr('pin','red','Lokasi',C.loc)}${cr('mail','blue','Email',C.email,'mailto:'+esc(C.email))}${cr('chat','green','WhatsApp',C.phone,'https://wa.me/'+esc(C.wa))}${cr('link','indigo','LinkedIn',C.liText,esc(C.li))}
   <div class="tile qrc w2" id="qw"><div id="qr"></div><span class="k">Pindai untuk membuka CV ini di ponsel</span></div></div>
   <div class="cta"><a class="btn pri" href="https://wa.me/${esc(C.wa)}" target="_blank" rel="noopener">${svg('chat')}Chat WhatsApp</a><a class="btn" href="${esc(C.cv)}" download>${svg('dl')}Unduh CV</a></div></div></div>`;
