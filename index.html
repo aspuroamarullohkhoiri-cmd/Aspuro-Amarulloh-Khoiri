@@ -132,6 +132,15 @@ h3{font:600 1.18rem/1.3 var(--head)}
 .row .lab{font-weight:700;font-size:.95rem;line-height:1.45;display:flex;gap:10px;align-items:center}
 .row .sm{margin-top:2px;font-size:.9rem;color:var(--muted)}
 .row.c h3{font:700 .98rem/1.4 var(--body)}
+/* Logo institusi dan perusahaan: tanpa bingkai, di kolom kiri di bawah tanggal.
+   Lebar dihitung dari rasio gambar (luas optik seragam), lalu diskalakan lewat --k */
+.row{--k:1}.row.c{--k:.82}
+.rail{display:flex;flex-direction:column;align-items:flex-start;gap:16px;min-width:0}
+.logo{display:block;flex:none;width:calc(var(--lw)*var(--k)*1px);height:auto;max-width:100%;transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.row:hover .logo{transform:translateY(-2px)}
+[data-theme=dark] .logo{filter:drop-shadow(.7px 0 0 rgba(255,255,255,.9)) drop-shadow(-.7px 0 0 rgba(255,255,255,.9)) drop-shadow(0 .7px 0 rgba(255,255,255,.9)) drop-shadow(0 -.7px 0 rgba(255,255,255,.9)) drop-shadow(0 0 9px rgba(255,255,255,.16))}
+@media (max-width:640px){.row{--k:.82}.row.c{--k:.7}.rail{flex-direction:row;align-items:center;justify-content:space-between;gap:16px}}
+@media (prefers-reduced-motion:reduce){.logo{transition:none}.row:hover .logo{transform:none}}
 .chips{display:flex;flex-wrap:wrap;gap:7px}
 
 /* Profil */
@@ -294,17 +303,18 @@ const D={
   lead:"Saya merancang dan membangun sistem ERP internal berbasis web untuk PT Murinda Sentra Baja, perusahaan konstruksi baja dan komponen alat berat. Hasilnya MSB ERP System: satu portal dengan 16 modul, dari gudang dan quality control sampai HSE dan pengiriman.",
   facts:[["Saat ini","System & Administration, PT Murinda Sentra Baja"],["Dibangun dengan","HTML, Google Apps Script, Google Sheets"],["Lokasi","Bekasi, Jawa Barat"]],
   sum:"Profesional administrasi bisnis dan teknologi informasi yang adaptif serta gemar mengeksplorasi solusi teknologi. Berpengalaman mengembangkan sistem internal berbasis web, mengintegrasikan data, mengelola dokumen, dan meningkatkan efisiensi operasional melalui teknologi yang tepat guna, dengan latar belakang administrasi mutu di industri baja dan logistik.",
-  hl:[["16","modul ERP dalam satu portal, dirancang dan dibangun sendiri untuk operasional PT Murinda Sentra Baja."],["Top 15%","LinkedIn Microsoft Excel Assessment, dari 17,1 juta pengguna."],["8","peran profesional dan magang, dari administrasi mutu dan logistik sampai pengembangan sistem."]],
+  hl:[["16","modul ERP dalam satu portal, dirancang dan dibangun sendiri untuk operasional PT Murinda Sentra Baja."],["Top 15%","LinkedIn Microsoft Excel Assessment, dari 17,1 juta pengguna."],["9","peran profesional dan magang, dari administrasi mutu dan logistik sampai pengembangan sistem."]],
   contact:{email:"aspurokhoiry@gmail.com",phone:"+62 812-9569-7672",wa:"6281295697672",li:"https://www.linkedin.com/in/aspuro-amarulloh-khoiri",liText:"linkedin.com/in/aspuro-amarulloh-khoiri",loc:"Bekasi, Jawa Barat",cv:"CV_Aspuro_Amarulloh_Khoiri_ATS.docx"},
   exp:[
-    {p:"System & Administration",c:"PT Murinda Sentra Baja",t:"Mei 2025 – Sekarang",b:["Merancang dan mengembangkan aplikasi web ERP internal berbasis Google Apps Script dan Google Sheets untuk operasional workshop buildup baja dan komponen alat berat.","Membangun modul manajemen gambar, gudang, quality control, HSE, maintenance, pengiriman, dan izin keluar-masuk (gate pass).","Memetakan proses bisnis dan mengintegrasikan data antarbagian agar alur kerja lebih rapi dan mudah dipantau.","Menyusun SOP serta mengelola dokumen dan arsip perusahaan."]},
-    {p:"Quality Control Administration Staff",c:"PT Murinda Iron Steel Plant Subang",t:"Sep 2024 – Mei 2025",b:["Mengelola administrasi dan dokumentasi quality control.","Membuat sistem untuk mengontrol gambar kerja.","Menyusun dan mengarsipkan dokumen mutu agar mudah ditelusuri."]},
-    {p:"Customer Service Monitoring Staff",c:"PT Linfox Logistics Indonesia (Unilever WDC)",t:"Jan 2021 – Jan 2023",b:["Memantau dan menindaklanjuti layanan pelanggan pada operasional pusat distribusi Unilever (WDC)."]},
-    {p:"QC Material Site & Document Control (Freelance)",c:"PT Prima Tunggal Javaland",t:"Agu 2020 – Des 2020",b:["Memeriksa material di lokasi proyek dan mengelola dokumen pengendalian mutu."]},
-    {p:"Quality Control Administration Staff",c:"PT Murinda Iron Steel Plant Cikarang",t:"Okt 2017 – Mei 2020",b:["Mengelola administrasi quality control serta pengarsipan dokumen mutu dan inspeksi."]},
-    {p:"Business Developer (Magang)",c:"PT Alfaomega Sehati Mitra (AO Transport)",t:"Mei 2017 – Agu 2017",b:["Mendukung kegiatan pengembangan bisnis perusahaan transportasi."]},
-    {p:"Staf Arsip (Magang)",c:"KPP Pratama Cikarang Utara",t:"Jul 2016 – Agu 2016",b:["Merapikan dan mengelola arsip dokumen instansi."]},
-    {p:"Staf Administrasi Pendidikan (Magang)",c:"Politeknik LP3I Jakarta Kampus Cikarang",t:"Apr 2016 – Mei 2016",b:["Mendukung pekerjaan administrasi akademik kampus."]}
+    {p:"System & Administration",c:"PT Murinda Sentra Baja",t:"Mei 2025 – Sekarang",lg:["msb.png",424,109],b:["Merancang dan mengembangkan aplikasi web ERP internal berbasis Google Apps Script dan Google Sheets untuk operasional workshop buildup baja dan komponen alat berat.","Membangun modul manajemen gambar, gudang, quality control, HSE, maintenance, pengiriman, dan izin keluar-masuk (gate pass).","Memetakan proses bisnis dan mengintegrasikan data antarbagian agar alur kerja lebih rapi dan mudah dipantau.","Menyusun SOP serta mengelola dokumen dan arsip perusahaan."]},
+    {p:"Quality Control Administration Staff",c:"PT Murinda Iron Steel Plant Subang",t:"Sep 2024 – Mei 2025",lg:["murinda.png",424,75],b:["Mengelola administrasi dan dokumentasi quality control.","Membuat sistem untuk mengontrol gambar kerja.","Menyusun dan mengarsipkan dokumen mutu agar mudah ditelusuri."]},
+    {p:"Expedition Administration",c:"PT Masuya Graha Trikencana",t:"Jan 2023 – Apr 2023",lg:["masuya.png",307,164],b:["Mengelola administrasi ekspedisi dan dokumen pengiriman."]},
+    {p:"Customer Service Monitoring Staff",c:"PT Linfox Logistics Indonesia (Unilever WDC)",t:"Jan 2021 – Jan 2023",lg:["linfox.png",319,164],b:["Memantau dan menindaklanjuti layanan pelanggan pada operasional pusat distribusi Unilever (WDC)."]},
+    {p:"QC Material Site & Document Control (Freelance)",c:"PT Prima Tunggal Javaland",t:"Agu 2020 – Des 2020",lg:["prima-tunggal.png",265,164],b:["Memeriksa material di lokasi proyek dan mengelola dokumen pengendalian mutu."]},
+    {p:"Quality Control Administration Staff",c:"PT Murinda Iron Steel Plant Cikarang",t:"Okt 2017 – Mei 2020",lg:["murinda.png",424,75],b:["Mengelola administrasi quality control serta pengarsipan dokumen mutu dan inspeksi."]},
+    {p:"Business Developer (Magang)",c:"PT Alfaomega Sehati Mitra (AO Transport)",t:"Mei 2017 – Agu 2017",lg:["ao-group.png",194,164],b:["Mendukung kegiatan pengembangan bisnis perusahaan transportasi."]},
+    {p:"Staf Arsip (Magang)",c:"KPP Pratama Cikarang Utara",t:"Jul 2016 – Agu 2016",lg:["kpp.png",176,164],b:["Merapikan dan mengelola arsip dokumen instansi."]},
+    {p:"Staf Administrasi Pendidikan (Magang)",c:"Politeknik LP3I Jakarta Kampus Cikarang",t:"Apr 2016 – Mei 2016",lg:["lp3i.png",424,154],b:["Mendukung pekerjaan administrasi akademik kampus."]}
   ],
   erp:{
     intro:"MSB ERP System adalah satu pintu masuk untuk seluruh operasional PT Murinda Sentra Baja. Saya merancang dan membangun 16 modulnya sendiri dengan HTML, Google Apps Script, dan Google Sheets, sehingga data antarbagian tersambung dan alur kerja mudah dipantau.",
@@ -318,7 +328,7 @@ const D={
     aux:[["Sistem Manajemen Gambar","Pengelolaan dokumen gambar kerja antarbagian."],["Delivery Sync","Sinkronisasi data pengiriman dan portal PO."],["Cutting Plan Studio","Perencanaan pemotongan dan pembuatan G-code marking."],["Formulir Izin Terpadu","Pengajuan izin dalam satu formulir terpadu."]]
   },
   skills:[["Pengembangan Sistem & Web",["ERP Development","Business Process Mapping","HTML","Web Dashboard Design"]],["Microsoft Office & Dokumen",["Excel","Word","PowerPoint","Visio","Advanced Spreadsheet Formulas & Automation","Adobe Acrobat (PDF Form & Document Control)"]],["Google Workspace",["Google Sheets","Google Docs","Google Forms","Google Apps Script"]],["Proses & Administrasi",["Process Flowcharting","SOP Drafting","Document Control & Archiving","Administrative System Optimization"]],["Kreatif & Multimedia",["Adobe Photoshop","Video Editing","Audio Editing","Graphic Asset Design","Media Documentation"]],["Sistem Operasi & Perangkat Keras",["Windows","macOS","Computer Hardware","IT Maintenance"]]],
-  edu:[{y:"2019",s:"Institut Ilmu Sosial dan Manajemen STIAMI Jakarta",p:"Administrasi Bisnis (Strata 1), IPK 3,08"},{y:"2017",s:"Politeknik LP3I Jakarta",p:"Administrasi Bisnis (Diploma III), IPK 3,04"}],
+  edu:[{y:"2019",s:"Institut Ilmu Sosial dan Manajemen STIAMI Jakarta",p:"Administrasi Bisnis (Strata 1), IPK 3,08",lg:["stiami.png",132,164]},{y:"2017",s:"Politeknik LP3I Jakarta",p:"Administrasi Bisnis (Diploma III), IPK 3,04",lg:["lp3i.png",424,154]}],
   certs:[["Microsoft",["Microsoft Office Specialist (kode verifikasi: rq32-uGFu)"]],["LinkedIn",["Top 15% Microsoft Excel Assessment Badge (dari 17,1 juta pengguna)"]],["Lembaga Sertifikasi Profesi LP3I",["Pengelolaan Sistem Kearsipan","Komputer untuk Perkantoran","Administration Officer"]]],
   train:[["Pengembangan diri",["Achievement Motivation Training (Politeknik LP3I Jakarta)","Beauty & Handsome Class (Mirabella, Martha Tilaar Group)","Table Manner Course (Kagum Hotel Group)"]],["25–26 Agustus 2018",["Pelatihan Semi Militer, Yon Armed 7/105 GS. Tema: membentuk mahasiswa berkarakter, kreatif, mandiri, dan percaya diri."]]],
   rev:"Oktober 2026"
@@ -389,7 +399,11 @@ const GH=['orange','green','blue','violet'],AH=['cyan','teal','red','indigo'];
 const SI=[['code','blue'],['file','orange'],['cloud','green'],['flow','violet'],['palette','pink'],['cpu','cyan']];
 const FI=[['building','blue'],['code','violet'],['pin','red']],HI=[['layers','blue'],['trophy','orange'],['brief','teal']],EI=[['dash','violet'],['search','cyan'],['phone','pink']];
 const list=a=>a.length>1?`<ul>${a.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:`<p class="d">${esc(a[0])}</p>`;
-const rowExp=(e,c)=>`<li class="row rv${c?' c':''}"><div class="when">${esc(e.t)}</div><div class="what"><h3>${esc(c?e.p.replace(/\s*\(Magang\)/,''):e.p)}</h3><p class="org">${esc(e.c)}</p>${list(e.b)}</div></li>`;
+/* Logo: lebar tiap logo dihitung dari rasionya agar luas optiknya seragam (batas lebar LW, tinggi LH) */
+const LA=6400,LW=140,LH=58;
+const lg=l=>{if(!l)return'';const r=l[1]/l[2];let h=Math.sqrt(LA/r),w=h*r;if(w>LW){w=LW;h=w/r}if(h>LH){h=LH;w=h*r}
+  return `<img class="logo" src="logo/${esc(l[0])}" alt="" style="--lw:${Math.round(w)}" width="${l[1]}" height="${l[2]}" loading="lazy" decoding="async" onerror="this.remove()">`};
+const rowExp=(e,c)=>`<li class="row rv${c?' c':''}"><div class="rail"><div class="when">${esc(e.t)}</div>${lg(e.lg)}</div><div class="what"><h3>${esc(c?e.p.replace(/\s*\(Magang\)/,''):e.p)}</h3><p class="org">${esc(e.c)}</p>${list(e.b)}</div></li>`;
 
 document.title=FULL+' — CV';
 $('#brand').textContent=D.name;
@@ -438,7 +452,7 @@ $('#keahlian').innerHTML=`<div class="sec-in">${head('keahlian','Keahlian')}<ul 
 
 const gh=(n,h,t)=>`<h3 class="grp">${ico(n,h,'sm')}${t}</h3>`;
 $('#pendidikan').innerHTML=`<div class="sec-in">${head('pendidikan','Pendidikan dan sertifikasi')}<div>
-  ${gh('cap','blue','Pendidikan')}<ul class="rows">${D.edu.map(e=>`<li class="row rv"><div class="when">${esc(e.y)}</div><div><div class="lab">${esc(e.s)}</div><div class="sm">${esc(e.p)}</div></div></li>`).join('')}</ul>
+  ${gh('cap','blue','Pendidikan')}<ul class="rows">${D.edu.map(e=>`<li class="row rv"><div class="rail"><div class="when">${esc(e.y)}</div>${lg(e.lg)}</div><div><div class="lab">${esc(e.s)}</div><div class="sm">${esc(e.p)}</div></div></li>`).join('')}</ul>
   ${gh('award','orange','Sertifikasi dan penghargaan')}<ul class="rows">${D.certs.map(c=>`<li class="row rv"><div class="lab">${esc(c[0])}</div><div>${c[1].map(x=>`<p style="margin-top:2px">${esc(x)}</p>`).join('')}</div></li>`).join('')}</ul>
   ${gh('book','green','Pelatihan')}<ul class="rows">${D.train.map(c=>`<li class="row rv"><div class="${/\d/.test(c[0])?'when':'lab'}">${esc(c[0])}</div><div>${c[1].map(x=>`<p style="margin-top:2px">${esc(x)}</p>`).join('')}</div></li>`).join('')}</ul>
 </div></div>`;
