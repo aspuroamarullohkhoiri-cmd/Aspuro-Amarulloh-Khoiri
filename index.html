@@ -329,7 +329,7 @@ const D={
   },
   skills:[["Pengembangan Sistem & Web",["ERP Development","Business Process Mapping","HTML","Web Dashboard Design"]],["Microsoft Office & Dokumen",["Excel","Word","PowerPoint","Visio","Advanced Spreadsheet Formulas & Automation","Adobe Acrobat (PDF Form & Document Control)"]],["Google Workspace",["Google Sheets","Google Docs","Google Forms","Google Apps Script"]],["Proses & Administrasi",["Process Flowcharting","SOP Drafting","Document Control & Archiving","Administrative System Optimization"]],["Kreatif & Multimedia",["Adobe Photoshop","Video Editing","Audio Editing","Graphic Asset Design","Media Documentation"]],["Sistem Operasi & Perangkat Keras",["Windows","macOS","Computer Hardware","IT Maintenance"]]],
   edu:[{y:"2019",s:"Institut Ilmu Sosial dan Manajemen STIAMI Jakarta",p:"Administrasi Bisnis (Strata 1), IPK 3,08",lg:["stiami.png",132,164]},{y:"2017",s:"Politeknik LP3I Jakarta",p:"Administrasi Bisnis (Diploma III), IPK 3,04",lg:["lp3i.png",424,154]}],
-  certs:[["Microsoft",["Microsoft Office Specialist (kode verifikasi: rq32-uGFu)"]],["LinkedIn",["Top 15% Microsoft Excel Assessment Badge (dari 17,1 juta pengguna)"]],["Lembaga Sertifikasi Profesi LP3I",["Pengelolaan Sistem Kearsipan","Komputer untuk Perkantoran","Administration Officer"]]],
+  certs:[["Microsoft",["Microsoft Office Specialist (kode verifikasi: rq32-uGFu)"]],["LinkedIn",["Top 15% Microsoft Excel Assessment Badge (dari 17,1 juta pengguna)"]],["Lembaga Sertifikasi Profesi LP3I",["Pengelolaan Sistem Kearsipan","Komputer untuk Perkantoran","Administration Officer"],["lsp-lp3i.png",145,125]]],
   train:[["Pengembangan diri",["Achievement Motivation Training (Politeknik LP3I Jakarta)","Beauty & Handsome Class (Mirabella, Martha Tilaar Group)","Table Manner Course (Kagum Hotel Group)"]],["25–26 Agustus 2018",["Pelatihan Semi Militer, Yon Armed 7/105 GS. Tema: membentuk mahasiswa berkarakter, kreatif, mandiri, dan percaya diri."]]],
   rev:"Oktober 2026"
 };
@@ -453,7 +453,7 @@ $('#keahlian').innerHTML=`<div class="sec-in">${head('keahlian','Keahlian')}<ul 
 const gh=(n,h,t)=>`<h3 class="grp">${ico(n,h,'sm')}${t}</h3>`;
 $('#pendidikan').innerHTML=`<div class="sec-in">${head('pendidikan','Pendidikan dan sertifikasi')}<div>
   ${gh('cap','blue','Pendidikan')}<ul class="rows">${D.edu.map(e=>`<li class="row rv"><div class="rail"><div class="when">${esc(e.y)}</div>${lg(e.lg)}</div><div><div class="lab">${esc(e.s)}</div><div class="sm">${esc(e.p)}</div></div></li>`).join('')}</ul>
-  ${gh('award','orange','Sertifikasi dan penghargaan')}<ul class="rows">${D.certs.map(c=>`<li class="row rv"><div class="lab">${esc(c[0])}</div><div>${c[1].map(x=>`<p style="margin-top:2px">${esc(x)}</p>`).join('')}</div></li>`).join('')}</ul>
+  ${gh('award','orange','Sertifikasi dan penghargaan')}<ul class="rows">${D.certs.map(c=>`<li class="row rv"><div class="rail"><div class="lab">${esc(c[0])}</div>${lg(c[2])}</div><div>${c[1].map(x=>`<p style="margin-top:2px">${esc(x)}</p>`).join('')}</div></li>`).join('')}</ul>
   ${gh('book','green','Pelatihan')}<ul class="rows">${D.train.map(c=>`<li class="row rv"><div class="${/\d/.test(c[0])?'when':'lab'}">${esc(c[0])}</div><div>${c[1].map(x=>`<p style="margin-top:2px">${esc(x)}</p>`).join('')}</div></li>`).join('')}</ul>
 </div></div>`;
 
